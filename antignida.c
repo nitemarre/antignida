@@ -18,16 +18,13 @@ main(){
 			fd = fopen(files[a], "rb");
 			fseek(fd, 0, SEEK_END);
 			fgetpos(fd, &file_size);
-			//printf("%d\n", file_size);
 			fclose(fd);
 			fd = fopen(files[a+1], "rb");
 			fseek(fd, 0, SEEK_END);
 			fgetpos(fd, &file_size2);
-			//printf("%d\n", file_size2);
 			fclose(fd);
 			f_z = file_size.__value;
 			f_z1 = file_size2.__value;
-			//printf("%d %d", f_z, f_z1);
 			if (f_z != f_z1) goto error;
 			a++;
 			a++;
@@ -45,5 +42,5 @@ else{
 return 0;
 
 error:
-	MessageBox(NULL, "nesovpadenie", "error", MB_OK);
+	MessageBox(NULL, "unmatch", "error", MB_OK);
 }
